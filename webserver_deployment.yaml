@@ -1,0 +1,11 @@
+- name: Web Server Deployment (HTTPd)
+  hosts: all
+  tasks:
+    - name: Install HTTPd package.
+      yum: name=httpd state=present
+    - name: Enable HTTPd service at initialization.
+      service: name=httpd state=started enabled=yes
+    - name: Adding Firewalld rule for HTTP (TCP/80) access.
+      firewalld: service=http permanent=true state=enabled
+    - name: Deploy sample HTML landing page.
+      template: src=hello.html.j2 dest=/var/www/html/hello.html
