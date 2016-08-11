@@ -1,5 +1,5 @@
 - name: Web Server Deployment (HTTPd)
-  hosts: rhel-node
+  hosts: rhel7-VM1
   tasks:
     - name: Install HTTPd package.
       yum: name=httpd state=present
