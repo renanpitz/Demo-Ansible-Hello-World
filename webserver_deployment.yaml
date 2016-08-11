@@ -2,7 +2,7 @@
   hosts: rhel7-VM1
   tasks:
     - name: Install HTTPd package.
-      yum: name=httpd state=present
+      yum: name=httpd state=latest
     - name: Enable HTTPd service at initialization.
       service: name=httpd state=started enabled=yes
     - name: Adding Firewalld rule for HTTP (TCP/80) access.
