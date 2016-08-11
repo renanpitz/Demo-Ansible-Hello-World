@@ -7,5 +7,6 @@
       service: name=httpd state=started enabled=yes
     - name: Adding Firewalld rule for HTTP (TCP/80) access.
       firewalld: service=http permanent=true state=enabled
+      service: name=firewalld state=restarted
     - name: Deploy sample HTML landing page.
       template: src=hello.html.j2 dest=/var/www/html/hello.html
